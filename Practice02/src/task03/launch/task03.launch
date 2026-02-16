@@ -1,0 +1,8 @@
+launch:
+  - node:
+      pkg: task03
+      exec: trigger_node
+      name: trigger_node
+      output: screen
+      param:
+        - from: $(find-pkg-share task03)/config/task03.yaml

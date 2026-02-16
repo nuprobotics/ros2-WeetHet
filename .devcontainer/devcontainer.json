@@ -1,0 +1,12 @@
+{
+  "name": "ROS2",
+  "build": {
+    "dockerfile": "Dockerfile",
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools", "twxs.cmake", "ms-iot.vscode-ros"],
+    },
+  },
+  "remoteUser": "ros",
+}

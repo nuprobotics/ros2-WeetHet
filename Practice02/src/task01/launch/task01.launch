@@ -1,0 +1,6 @@
+launch:
+  - node:
+      pkg: task01
+      exec: receiver
+      name: receiver
+      output: screen

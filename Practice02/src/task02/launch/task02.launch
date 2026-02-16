@@ -1,0 +1,13 @@
+launch:
+  - arg:
+      name: text
+      default: "Hello, ROS2!"
+  - node:
+      pkg: task02
+      exec: publisher_node
+      name: publisher_node
+      output: screen
+      param:
+        - from: $(find-pkg-share task02)/config/task02.yaml
+        - name: text
+          value: $(var text)

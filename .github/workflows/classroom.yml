@@ -192,6 +192,6 @@ jobs:
           private-api-key: "${{ secrets.PRIVATE_API_KEY }}"
           task-results: "${{ steps.P2T4.outputs.result }}"
           table-id: "${{ secrets.TABLE_ID }}"
-      - name:    
+      - name: Finish
         run: |
           echo "Task is sent"
