@@ -1,6 +1,17 @@
+from contextlib import contextmanager
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+
+
+@contextmanager
+def rclpy_context(args=None):
+    rclpy.init(args=args)
+    try:
+        yield
+    finally:
+        rclpy.shutdown()
 
 
 class PublisherNode(Node):
@@ -28,7 +39,7 @@ class PublisherNode(Node):
 
 
 def main(args=None):
-    with rclpy.init(args=args):
+    with rclpy_context(args=args):
         node = PublisherNode()
         rclpy.spin(node)
         node.destroy_node()

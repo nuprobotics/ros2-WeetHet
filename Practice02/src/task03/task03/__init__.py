@@ -1,6 +1,17 @@
+from contextlib import contextmanager
+
 import rclpy
 from rclpy.node import Node
 from std_srvs.srv import Trigger
+
+
+@contextmanager
+def rclpy_context(args=None):
+    rclpy.init(args=args)
+    try:
+        yield
+    finally:
+        rclpy.shutdown()
 
 
 class TriggerNode(Node):
@@ -56,7 +67,7 @@ class TriggerNode(Node):
 
 
 def main(args=None):
-    with rclpy.init(args=args):
+    with rclpy_context(args=args):
         node = TriggerNode()
         rclpy.spin(node)
         node.destroy_node()
